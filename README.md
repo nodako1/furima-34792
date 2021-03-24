@@ -27,10 +27,10 @@
 | item_category_id    | integer    | null: false                    |
 | item_status_id      | integer    | null: false                    |
 | shipping_cost_id    | integer    | null: false                    |
-| customers_state_id  | string     | null: false                    |
+| customers_state_id  | integer    | null: false                    |
 | days_to_delivery_id | integer    | null: false                    |
 | item_price          | integer    | null: false                    |
-| user_id             | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,7 +41,7 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| item_id | string     | null: false                    |
+| item    | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
 
 ### Association
@@ -60,7 +60,7 @@
 | customers_street_address | string     | null: false                    |
 | customers_suburb         | string     |                                |
 | customers_telephone      | string     | null: false                    |
-| purchase_id              | references | null: false, foreign_key: true |
+| purchase                 | references | null: false, foreign_key: true |
 
 
 ### Association
