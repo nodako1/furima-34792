@@ -22,16 +22,15 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| item_image          | string     | null: false                    |
 | item_name           | string     | null: false                    |
 | item_description    | text       | null: false                    |
-| item_category       | string     | null: false                    |
-| item_status         | string     | null: false                    |
-| shipping_cost       | string     | null: false                    |
-| customers_status_id | string     | null: false                    |
-| days_to_delivery    | string     | null: false                    |
-| item_price          | string     | null: false                    |
-| seller              | references | null: false, foreign_key: true |
+| item_category_id    | integer    | null: false                    |
+| item_status_id      | integer    | null: false                    |
+| shipping_cost_id    | integer    | null: false                    |
+| customers_state_id  | string     | null: false                    |
+| days_to_delivery_id | integer    | null: false                    |
+| item_price          | integer    | null: false                    |
+| user_id             | integer    | null: false                    |
 
 ### Association
 
@@ -40,10 +39,10 @@
 
 ## purchase テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| item_name | string     | null: false                    |
-| user      | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| item_id | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,12 +55,12 @@
 | Column                   | Type       | Options                        |
 | ------------------------ | ---------- | ------------------------------ |
 | customers_post_code      | string     | null: false                    |
-| customers_status_id      | integer    | null: false                    |
+| customers_state_id       | integer    | null: false                    |
 | customers_city           | string     | null: false                    |
 | customers_street_address | string     | null: false                    |
 | customers_suburb         | string     |                                |
 | customers_telephone      | string     | null: false                    |
-| purchase_id              | string     | null: false                    |
+| purchase_id              | references | null: false, foreign_key: true |
 
 
 ### Association
