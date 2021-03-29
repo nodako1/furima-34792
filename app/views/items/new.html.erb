@@ -3,13 +3,13 @@
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
 
   </header>
+
   <div class="items-sell-main">
+   <% if user_signed_in? %>
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 出品画像 %>
     <div class="img-upload">
@@ -142,6 +142,10 @@
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
+   <% else %>
+    <div class="grid-6">
+    </div>
+   <% end %>
   </div>
   <% end %>
 
