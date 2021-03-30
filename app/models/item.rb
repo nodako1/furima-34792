@@ -9,11 +9,13 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :price
-    validates :category_id, numericality: { other_than: 1 }
-    validates :status_id, numericality: { other_than: 1 }
-    validates :state_id, numericality: { other_than: 1 }
-    validates :shipping_cost_id, numericality: { other_than: 1 }
-    validates :days_to_delivery_id, numericality: { other_than: 1 }
+    validates :price, format: { with: /^[0-9]+$/ }
+    with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :state_id
+    validates :shipping_cost_id
+    validates :days_to_delivery_id
+    end
   end
 end
