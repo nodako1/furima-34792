@@ -14,13 +14,14 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :description
-    validates :price, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than: 300, less_than: 10000000}
+    validates :price, format: { with: /\A[0-9]+\z/ },
+                      numericality: { only_integer: true, greater_than: 300, less_than: 10_000_000 }
     with_options numericality: { other_than: 1 } do
-    validates :category_id
-    validates :status_id
-    validates :state_id
-    validates :shipping_cost_id
-    validates :days_to_delivery_id
+      validates :category_id
+      validates :status_id
+      validates :state_id
+      validates :shipping_cost_id
+      validates :days_to_delivery_id
     end
   end
 end

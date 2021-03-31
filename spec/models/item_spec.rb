@@ -30,52 +30,52 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報がないと出品できない' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors[:category_id]).to include("can't be blank", "is not a number")
+        expect(@item.errors[:category_id]).to include("can't be blank", 'is not a number')
       end
       it 'カテゴリーの情報がないと出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors[:category_id]).to include("must be other than 1")
+        expect(@item.errors[:category_id]).to include('must be other than 1')
       end
       it '商品の状態についての情報がないと出品できない' do
         @item.status_id = ''
         @item.valid?
-        expect(@item.errors[:status_id]).to include("can't be blank", "is not a number")
+        expect(@item.errors[:status_id]).to include("can't be blank", 'is not a number')
       end
       it '商品の状態についての情報がないと出品できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors[:status_id]).to include("must be other than 1")
+        expect(@item.errors[:status_id]).to include('must be other than 1')
       end
       it '配送料の負担についての情報がないと出品できない' do
         @item.shipping_cost_id = ''
         @item.valid?
-        expect(@item.errors[:shipping_cost_id]).to include("can't be blank", "is not a number")
+        expect(@item.errors[:shipping_cost_id]).to include("can't be blank", 'is not a number')
       end
       it '配送料の負担についての情報がないと出品できない' do
         @item.shipping_cost_id = 1
         @item.valid?
-        expect(@item.errors[:shipping_cost_id]).to include("must be other than 1")
+        expect(@item.errors[:shipping_cost_id]).to include('must be other than 1')
       end
       it '発送元の地域についての情報がないと出品できない' do
         @item.state_id = ''
         @item.valid?
-        expect(@item.errors[:state_id]).to include("can't be blank", "is not a number")
+        expect(@item.errors[:state_id]).to include("can't be blank", 'is not a number')
       end
       it '発送元の地域についての情報がないと出品できない' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors[:state_id]).to include("must be other than 1")
+        expect(@item.errors[:state_id]).to include('must be other than 1')
       end
       it '発送までの日数についての情報がないと出品できない' do
         @item.days_to_delivery_id = ''
         @item.valid?
-        expect(@item.errors[:days_to_delivery_id]).to include("can't be blank", "is not a number")
+        expect(@item.errors[:days_to_delivery_id]).to include("can't be blank", 'is not a number')
       end
       it '発送までの日数についての情報がないと出品できない' do
         @item.days_to_delivery_id = 1
         @item.valid?
-        expect(@item.errors[:days_to_delivery_id]).to include("must be other than 1")
+        expect(@item.errors[:days_to_delivery_id]).to include('must be other than 1')
       end
       it '販売価格についての情報がないと出品できない' do
         @item.price = ''
@@ -85,27 +85,27 @@ RSpec.describe Item, type: :model do
       it '販売価格は、¥300~¥9,999,999の間でないと出品できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Out of setting range')
+        expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
       it '販売価格は、¥300~¥9,999,999の間でないと出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Out of setting range')
+        expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
       it '販売価格は全角文字では出品できない' do
         @item.price = '２００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it '販売価格は半角英数混合では出品できない' do
         @item.price = 'aaa111'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it '販売価格は半角英語だけでは出品できない' do
         @item.price = 'aaaaaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
