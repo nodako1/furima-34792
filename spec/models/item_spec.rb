@@ -30,52 +30,52 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報がないと出品できない' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors[:category_id]).to include("Category can't be blank", 'Category is not a number')
+        expect(@item.errors[:category_id]).to include("can't be blank", "is not a number")
       end
       it 'カテゴリーの情報がないと出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors[:category_id]).to include("Category can't be blank", 'Category is not a number')
+        expect(@item.errors[:category_id]).to include("must be other than 1")
       end
       it '商品の状態についての情報がないと出品できない' do
         @item.status_id = ''
         @item.valid?
-        expect(@item.errors[:status_id]).to include("Status can't be blank", 'Status is not a number')
+        expect(@item.errors[:status_id]).to include("can't be blank", "is not a number")
       end
       it '商品の状態についての情報がないと出品できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors[:status_id]).to include("Status can't be blank", 'Status is not a number')
+        expect(@item.errors[:status_id]).to include("must be other than 1")
       end
       it '配送料の負担についての情報がないと出品できない' do
         @item.shipping_cost_id = ''
         @item.valid?
-        expect(@item.errors[:shipping_cost_id]).to include("Shipping cost can't be blank", 'Shipping cost is not a number')
+        expect(@item.errors[:shipping_cost_id]).to include("can't be blank", "is not a number")
       end
       it '配送料の負担についての情報がないと出品できない' do
         @item.shipping_cost_id = 1
         @item.valid?
-        expect(@item.errors[:shipping_cost_id]).to include("Shipping cost can't be blank", 'Shipping cost is not a number')
+        expect(@item.errors[:shipping_cost_id]).to include("must be other than 1")
       end
       it '発送元の地域についての情報がないと出品できない' do
         @item.state_id = ''
         @item.valid?
-        expect(@item.errors[:state_id]).to include("State can't be blank", 'State is not a number')
+        expect(@item.errors[:state_id]).to include("can't be blank", "is not a number")
       end
       it '発送元の地域についての情報がないと出品できない' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors[:state_id]).to include("State can't be blank", 'State is not a number')
+        expect(@item.errors[:state_id]).to include("must be other than 1")
       end
       it '発送までの日数についての情報がないと出品できない' do
         @item.days_to_delivery_id = ''
         @item.valid?
-        expect(@item.errors[:days_to_delivery_id]).to include("Days to delivery can't be blank", 'Days to delivery is not a number')
+        expect(@item.errors[:days_to_delivery_id]).to include("can't be blank", "is not a number")
       end
       it '発送までの日数についての情報がないと出品できない' do
         @item.days_to_delivery_id = 1
         @item.valid?
-        expect(@item.errors[:days_to_delivery_id]).to include("Days to delivery can't be blank", 'Days to delivery is not a number')
+        expect(@item.errors[:days_to_delivery_id]).to include("must be other than 1")
       end
       it '販売価格についての情報がないと出品できない' do
         @item.price = ''
