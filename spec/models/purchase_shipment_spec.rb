@@ -25,6 +25,16 @@ RSpec.describe PurchaseShipment, type: :model do
         @purchase_shipment.valid?
         expect(@purchase_shipment.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空だと購入できない' do
+        @purchase_shipment.user_id = nil
+        @purchase_shipment.valid?
+        expect(@purchase_shipment.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと購入できない' do
+        @purchase_shipment.item_id = nil
+        @purchase_shipment.valid?
+        expect(@purchase_shipment.errors.full_messages).to include("Item can't be blank")
+      end
       it '郵便番号が空では登録できないこと' do
         @purchase_shipment.post_code = nil
         @purchase_shipment.valid?
