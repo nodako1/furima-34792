@@ -56,6 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index2
-    redirect_to action: :index if @item.purchase != nil
+    redirect_to action: :index unless @item.purchase.nil?
   end
 end
