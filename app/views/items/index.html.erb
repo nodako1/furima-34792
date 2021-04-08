@@ -130,9 +130,12 @@
           <%= link_to item_path(item.id) do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
+            <% if item.purchase != nil %>
+            <%# 商品に紐づいている購入テーブルにレコード(id)があったら %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
+            <% end %>
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
